@@ -1,0 +1,98 @@
+# # import random
+
+# # a = [1, 2, 3, 4, 5]
+# # a.pop(1)
+# # print(a)
+# # if 1 in a:
+# #     print('Yay')
+# # for i in range(len(a)):
+# #     a[i] = random.randint(0, 10)
+
+# # print (a)
+# #  if 4 in a:
+# #     print('Hurray')
+
+# import random
+
+# laenge = int(input('Geben Sie die gewünschte Länge ein'))
+
+# arr1 = []
+
+# for i in range(laenge):
+#     arr1.append(random.randint(5, 15))
+
+# print(arr1)
+
+# laenge = int(input('Geben Sie die Länge ein'))
+
+# a = []
+
+# for i in range(laenge):
+#     a.append(int(input('Geben Sie ihre Zahl ein:')))
+
+# if a != []:
+#     d = a[0]
+#     for j in a:
+#         if j <= d:
+#             d = j
+#     print('Lowest Number', d)
+
+# b = min(a)
+
+# print(a)
+# print(b)
+
+# print(len(arr1))
+
+# r = []
+# for i in range(len(a)):
+#     r.append(len(a)-i)
+
+# print(r)
+
+# a = []
+# b = []
+# for i in range(laenge):
+#     for j in range(laenge):
+#         b.append(random.randint(0, 15))
+#     a.append(b)
+#     b = []
+
+# print(a)
+
+# for i in range(laenge):
+#     print(sum(a[i]))
+
+# def funktion(n):
+#     n = n
+#     print(n)
+#     print(s)
+#     global r
+#     r = 21
+# s = 2
+# funktion(s)
+# print(r)
+
+# def var(m):
+#     global n
+#     n = m
+#     return m
+# var(m=9)
+# print(n)
+# u =2
+# w = var(u)
+# print(u)
+# print(w)
+
+# def abc(x):
+#     x[2] = 9
+#     print(x)
+
+# a = [1, 2, 3, 4]
+# b = a
+# c = a.copy()
+
+# abc(x = a)
+# print(a)
+# print(b)
+# print(c)

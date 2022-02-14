@@ -1,0 +1,32 @@
+from math import *
+
+eingabe = open('landkreis1.txt', 'r')
+zeile_1 = eingabe.readline()
+zeile_1 = zeile_1.split()
+anzahl_Häuser = int(zeile_1[0])
+anzahl_Windräder = int(zeile_1[1])
+koord_Häuser = []
+koord_Windräder = []
+
+for i, zeile in enumerate(eingabe):
+    if i < anzahl_Häuser:
+        koord_Häuser.append([int(zeile.rstrip().split()[0]), int(zeile.rstrip().split()[1])])
+    else: 
+        koord_Windräder.append([int(zeile.rstrip().split()[0]), int(zeile.rstrip().split()[1])])
+
+höhen = []
+höhen_Windräder = []
+x = 0
+y = 0
+
+for i in range(anzahl_Windräder):
+    for j in range(anzahl_Häuser):
+        h = sqrt((koord_Häuser[x][0]-koord_Windräder[y][0])**2+(koord_Häuser[x][1]-koord_Windräder[y][1])**2)
+        x += 1
+        höhen.append(h)
+    höhe = min(höhen)
+    höhen_Windräder.append(höhe/10)
+    höhen.clear()
+    x = 0
+    y += 1
+print('Bei den gegebenen Windrädern und Häusern sind folgende Höhen der Windräder möglich: \n', höhen_Windräder)

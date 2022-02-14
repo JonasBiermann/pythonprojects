@@ -1,0 +1,48 @@
+from math import *
+
+text1 = open("landkreis1.txt")
+first_Line = text1.readline()
+
+a =[]
+b =[]
+c = first_Line.split()
+d = int(c[0])
+e = int(c[1])
+
+print("Die Anzahl der Häuser beträgt: ",d)
+print("Die Anzahl der Windräder beträgt: ", e)
+
+for i, zeile in enumerate(text1):
+    if i < d:
+        a.append([int(zeile.rstrip().split()[0]),int(zeile.rstrip().split()[1])])
+    else:
+        b.append([int(zeile.rstrip().split()[0]),int(zeile.rstrip().split()[1])])
+        
+print("Die Koordinaten der Häuser sind folgende: ", a)
+print("-----------------------------------------------------------------------")
+print("Die Koordinaten der Windräder sind folgende: ", b)
+print("-----------------------------------------------------------------------")
+h = []
+höhe_Windräder = []
+me = int(-1)
+x = 0
+y = 0
+minimum = -1 #E kann nicht -1 sein wegen wurzel
+
+for j in range(e):
+    for k in range(d):
+        E = sqrt((a[x][0]-b[y][0])**2+(a[x][1]-b[y][1])**2)
+        x += 1
+        h.append(E)
+    if h != []:
+        m = h[0]
+        for n in h:
+            if n <=m:
+                m = n
+    höhe_Windräder.append(m/10)
+    h.clear()
+    y += 1
+    x = 0
+
+
+print("Bei den ", d, " Häusern und ", e, " sind folgende höhen der Windräder möglich:\n ", höhe_Windräder)
