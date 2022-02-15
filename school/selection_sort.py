@@ -1,6 +1,3 @@
-from re import L
-
-
 def selectionSort(list):
     indexing_length = range(0, len(list)-1)
 
