@@ -1,23 +1,18 @@
-input = """3
-Mollaristan
-Auritania
-Zizily
-"""
+def processCase(caseNum):
+    c = [['b'], ['c'], ['d'], ['f'], ['g'], ['h'], ['j'], ['k'], ['l'], ['m'], ['n'], ['p'], ['q'], ['r'], ['s'], ['t'], ['v'], ['w'], ['x'], ['z']]
+    v = [['a'], ['e'], ['i'], ['o'], ['u']]
+    kingdomName = input().split()
+    if kingdomName[0][-1] != 'y':
+        for i in range(len(c)):
+            if kingdomName[0][-1] == c[i][0]:
+                print(f'Case #{caseNum}: {kingdomName[0]} is ruled by Bob.')
+    if kingdomName[0][-1] != 'y':
+        for j in range(len(v)):
+            if kingdomName[0][-1] == v[j][0]:
+                print(f'Case #{caseNum}: {kingdomName[0]} is ruled by Alice.')
+    if kingdomName[0][-1] == 'y': 
+        print(f'Case #{caseNum}: {kingdomName[0]} is ruled by nobody.')
 
-sampleInput = []
-sampleInput.append(input.split())
-cases = int(sampleInput[0][0])
-
-letters = []
-x = 1
-for i in range(cases):
-    letters.append(sampleInput[0][x][-1])
-    x += 1
-
-for i in range(len(letters)):
-    if letters[i] == 'n':
-        print('Case #', i+1,': ', sampleInput[0][i+1], 'is ruled by Bob.')
-    if letters[i] == 'a':
-        print('Case #', i+1,': ', sampleInput[0][i+1], 'is ruled by Alice.')
-    if letters[i] == 'y':
-        print('Case #', i+1,': ', sampleInput[0][i+1], 'is ruled by nobody.')
+caseNum = int(input())
+for i in range(caseNum):
+    processCase(i+1)
