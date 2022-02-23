@@ -1,46 +1,28 @@
-input = """2
-3
-5 1 2
-6
-1 3 3 2 2 15
-"""
-sampleInput = []
-for line in input.splitlines():
-    sampleInput.append(line.split())
+from unittest import case
 
-print(sampleInput)
 
-cases = int(sampleInput[0][0])
+def score(x: int, A: list):
+    total = sum(A[x:])
+    return total
 
-paperCount = []
-x = 1
-for i in range(cases):
-    paperCount.append(int(sampleInput[x][0]))
-    x = 3
+def calculate_hindex(N: int, citations: list, caseNum: int):
+    A = [0] * (N+1)
+    ans = []
+    hindex = 0
+    for i in range(N):
+        A[N if citations[i]>N else citations[i]]+=1
+        j = i+1
+        while j and j >hindex:
+            if (score(j, A)>= j):
+                hindex = j
+                break
+            j -= 1
+        ans.append(hindex)
+    case = (*ans, sep = ', ')
+    print(case)
 
-citationCount = []
-x = 2
-for i in range(cases):
-    citPap = []
-    for j in range(paperCount[i]):
-        citPap.append(int(sampleInput[x][j]))
-    citationCount.append(citPap)
-    x = 4
-
-print(citationCount)
-
-h_index = []
-
-for i in range(cases):
-    h = 0
-    citations = 1
-    sample_h = []
-    
-    for j in range(paperCount[i]):
-        
-        if citationCount[i][j] >= citations*(j+1):
-            h += 1
-        sample_h.append(h)
-    h_index.append(sample_h)
-
-print(h_index)
+caseNum = int(input())
+for i in range(caseNum):
+    N = int(input())
+    A = list(map(int, input().split()))
+    calculate_hindex(N, A, i+1)
