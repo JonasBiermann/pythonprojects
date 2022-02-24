@@ -1,11 +1,8 @@
-from unittest import case
-
-
 def score(x: int, A: list):
     total = sum(A[x:])
     return total
 
-def calculate_hindex(N: int, citations: list, caseNum: int):
+def calculate_hindex(N: int, citations: list):
     A = [0] * (N+1)
     ans = []
     hindex = 0
@@ -18,11 +15,10 @@ def calculate_hindex(N: int, citations: list, caseNum: int):
                 break
             j -= 1
         ans.append(hindex)
-    case = (*ans, sep = ', ')
-    print(case)
+    return ans
 
 caseNum = int(input())
 for i in range(caseNum):
     N = int(input())
     A = list(map(int, input().split()))
-    calculate_hindex(N, A, i+1)
+    print('Case #', i+1, calculate_hindex(N, A))
